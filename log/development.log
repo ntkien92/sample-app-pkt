@@ -1,0 +1,18 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-05 17:26:35 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/kien/.rvm/gems/ruby-2.2.2/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 72ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-06 08:57:57 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/kien/.rvm/gems/ruby-2.2.2/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (18.3ms)
+Completed 200 OK in 87ms (Views: 73.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-06 09:10:25 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/kien/.rvm/gems/ruby-2.2.2/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
