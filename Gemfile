@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry'
 
 # Use rubycop to check convention
-gem 'rubocop', require: false
+gem 'rubocop'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
