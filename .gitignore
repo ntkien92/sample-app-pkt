@@ -55,3 +55,6 @@ bower.json
 sftp-config.json
 
 Gemfile.lock
+
+# Ignore Spring files.
+/spring/*.pid
