@@ -1,0 +1,6 @@
+gem "debugger", :groups => [:development]
+
+dependencies:
+  bundler:
+    without:
+      - development
