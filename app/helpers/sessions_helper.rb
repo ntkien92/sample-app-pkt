@@ -16,6 +16,12 @@ module SessionsHelper
     end
   end
 
+  def log_in_with_session(user)
+    log_in user
+    params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+    redirect_to user
+  end
+
   def logged_in?
     !current_user.nil?
   end
