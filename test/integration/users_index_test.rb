@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UsersIndexTest < ActionDispatch::IntegrationTest
-  
   def setup
     @admin      = users(:michael)
     @non_admin  = users(:archer)
@@ -27,6 +26,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   test 'index as non_admin' do
     log_in_as(@non_admin)
     get users_path
-    assert_select 'a', text:'Delete', count: 0
+    assert_select 'a', text: 'Delete', count: 0
   end
 end
