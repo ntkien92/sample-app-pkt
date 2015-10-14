@@ -38,7 +38,8 @@ gem 'bcrypt'
 
 # Use rubycop to check convention
 gem 'rubocop'
-
+# Use gem Faker
+gem 'faker'
 group :development, :test do
   # Use binding.pry to test
   gem 'pry'
