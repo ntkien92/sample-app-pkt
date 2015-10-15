@@ -41,7 +41,10 @@ gem 'bootstrap-will_paginate'
 
 # Use rubycop to check convention
 gem 'rubocop'
-
+# Gem to insert picture into comment.
+gem 'carrierwave',             '0.10.0'
+gem 'mini_magick',             '3.8.0'
+gem 'fog',                     '1.26.0'
 group :development, :test do
   # Use binding.pry to test
   gem 'pry'
