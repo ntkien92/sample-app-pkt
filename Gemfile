@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bcrypt'
-gem 'faker' 
 # Use to paginate
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -41,7 +40,8 @@ gem 'bootstrap-will_paginate'
 
 # Use rubycop to check convention
 gem 'rubocop'
-
+# Use gem Faker
+gem 'faker'
 group :development, :test do
   # Use binding.pry to test
   gem 'pry'
