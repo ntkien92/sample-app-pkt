@@ -65,4 +65,12 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.url if request.get?
   end
+
+  def user_activated(user)
+    if user.activated?
+      log_in_with_session user
+    else
+      message_no_activated
+    end
+  end
 end
