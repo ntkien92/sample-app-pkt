@@ -20,17 +20,21 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  def self.digest(string)
-    if ActiveModel::SecurePassword.min_cost
-      cost = BCrypt::Engine::MIN_COST
-    else
-      cost = BCrypt::Engine.cost
+  class << self
+    # Returns the hash digest of the given string.
+    def digest(string)
+      if ActiveModel::SecurePassword.min_cost
+        cost = BCrypt::Engine::MIN_COST
+      else
+        cost = BCrypt::Engine.cost
+      end
+      BCrypt::Password.create(string, cost: cost)
     end
-    BCrypt::Password.create(string, cost: cost)
-  end
 
-  def self.new_token
-    SecureRandom.urlsafe_base64
+    # Returns a random token
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   def remember
