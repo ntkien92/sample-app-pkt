@@ -13,7 +13,7 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     @feed_items = current_user.feed.paginate(page: params[:page])
-    destroy_micropost_in_profile_link @micropost
+    micropost_in_profile_link @micropost
     respond_to do |format|
       format.html { redirect_to request.referrer || root_url }
       format.js

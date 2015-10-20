@@ -1,6 +1,6 @@
 # MicropostsHelper
 module MicropostsHelper
-  def destroy_micropost_in_profile_link(micropost)
+  def micropost_in_profile_link(micropost)
     @micropost = micropost
     @user = User.find(@micropost.user.id)
     @microposts = @micropost.user.microposts.paginate(page: params[:page])
