@@ -1,23 +1,23 @@
 # Micropost action, for example: create, destroy...
 class MicropostsController < ApplicationController
+  include MicropostsHelper
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    if @micropost.save
-      flash[:success] = 'Micropost created!'
-      redirect_to root_url
-    else
-      @feed_items = []
-      render 'static_pages/home'
-    end
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    micropost_render_ajax_when_create @micropost
   end
 
   def destroy
     @micropost.destroy
-    flash[:success] = 'Micropost deleted'
-    redirect_to request.referrer || root_url
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    micropost_in_profile_link @micropost
+    respond_to do |format|
+      format.html { redirect_to request.referrer || root_url }
+      format.js
+    end
   end
 
   private
