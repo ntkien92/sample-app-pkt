@@ -32,6 +32,17 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # Try to log in before activation
     log_in_as(user)
     assert_not logged_in?
+    # Index page
+    # Log in as valid user
+    log_in_as(users(:michael))
+    # Unactivated user is on the second page
+    get users_path, page: 2
+    assert_no_match user.name, response.body
+    # Profile page
+    get user_path(user)
+    assert_redirected_to root_url
+    # Log out valid user
+    delete logout_path
     # Invalid activation token
     get edit_account_activation_path('invalid token')
     assert_not logged_in?
@@ -43,6 +54,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert user.reload.activated?
     follow_redirect!
     assert_template 'users/show'
+    assert_not_nil flash
     assert logged_in?
   end
 end
