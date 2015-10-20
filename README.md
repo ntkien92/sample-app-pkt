@@ -8,10 +8,10 @@
 #### About Project
 Project about a web like **twitter** web.
 Project have some task:
-- Create Account
+- Create account
 - Log in, Log out user
-- Active Account
-- Reset Password
-- Create Microposts from User
-- Show Microposts in new feed.
-- Follow, Unfoloow to another user
+- Active account
+- Reset password
+- Create microposts from User
+- Show microposts in new feed.
+- Follow, unfollow another user
