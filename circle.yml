@@ -2,3 +2,13 @@ dependencies:
   bundler:
     without:
       - development
+machine:
+  ruby:
+    version:
+      2.2.2
+
+test:
+  post:
+    - bundle exec rake test
+    - rubocop app
+    - rubocop test
