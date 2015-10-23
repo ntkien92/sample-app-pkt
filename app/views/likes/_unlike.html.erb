@@ -1,1 +1,1 @@
-<%= link_to 'Unlike', like_path(micropost.likes.first.id), method: :delete, remote: true %>
+<%= link_to 'Unlike', like_path(micropost.likes.first.id, page: params[:page]), method: :delete, remote: true %>

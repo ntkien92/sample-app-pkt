@@ -4,12 +4,9 @@
   <span>0 like</span>
 <% end %>
 <% if logged_in? %>
-<div id="liked_form">
   <% if micropost.likers.include?(current_user) %>
     <%= render 'likes/unlike', micropost: micropost %>
   <% else %>
     <%= render 'likes/like', micropost: micropost %>
   <% end %>
-</div>
-
 <% end %>
