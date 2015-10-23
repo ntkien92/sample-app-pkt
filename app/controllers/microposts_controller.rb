@@ -11,7 +11,6 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @micropost.destroy
     @feed_items = current_user.feed.paginate(page: params[:page])
     micropost_in_profile_link @micropost

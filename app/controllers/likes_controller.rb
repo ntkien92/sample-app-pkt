@@ -5,12 +5,20 @@ class LikesController < ApplicationController
   def create
     @micropost = Micropost.find(params[:micropost_id])
     current_user.like(@micropost)
-    redirect_to :back
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def destroy
     @micropost = Like.find(params[:id]).liked
     current_user.unlike(@micropost)
-    redirect_to :back
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 end
