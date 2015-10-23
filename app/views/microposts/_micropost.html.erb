@@ -10,7 +10,8 @@
     <br />
     <%= render 'likes/liked_form', micropost: micropost %>
     <% if current_user?(micropost.user) %>
-      <%= link_to "Delete", micropost, method: :delete,
+      | <%= link_to "Delete", micropost, remote: true,
+                                       method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>

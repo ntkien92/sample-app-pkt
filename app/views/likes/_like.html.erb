@@ -1,7 +1,1 @@
-<%= form_for(current_user.likes.build) do |f| %>
-  <div>
-    <%= 
-    hidden_field_tag :micropost_id, micropost.id %>
-  </div>
-  <%= f.submit 'Like', class: 'btn btn-primary'%>
-<% end %>
+<%= link_to 'Like', likes_path(micropost_id: micropost.id), method: :post %>

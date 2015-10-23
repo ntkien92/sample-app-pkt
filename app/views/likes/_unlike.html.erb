@@ -1,4 +1,1 @@
-<%= form_for(current_user.likes.find_by(micropost_id: micropost.id),
-             html: { method: :delete }) do |f| %>
-  <%= f.submit 'Unlike', class: 'btn' %>
-<% end %>
+<%= link_to 'Unlike', like_path(micropost.likes.first.id), method: :delete %>
