@@ -1,1 +1,5 @@
-<%= link_to 'Like', likes_path(micropost_id: micropost.id, page: params[:page]), method: :post, remote: true %>
+<%= link_to 'Like', likes_path(micropost_id: micropost.id,
+                               page: params[:page], user_id: micropost.user_id),
+                               method: :post,
+                               id: "like_#{micropost.id}",
+                               class: 'like_button' %>
