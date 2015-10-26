@@ -1,0 +1,12 @@
+<% if micropost.likers.count > 0 %>
+  <%= pluralize(micropost.likers.count, 'like') %>
+<% else %>
+  <span>0 like</span>
+<% end %>
+<% if logged_in? %>
+  <% if micropost.likers.include?(current_user) %>
+    <%= render 'likes/unlike', micropost: micropost %>
+  <% else %>
+    <%= render 'likes/like', micropost: micropost %>
+  <% end %>
+<% end %>

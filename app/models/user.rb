@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
                                    dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :likes, dependent: :destroy
+  has_many :liked, through: :likes
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -93,6 +95,18 @@ class User < ActiveRecord::Base
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def like(micropost)
+    likes.create(micropost_id: micropost.id)
+  end
+
+  def unlike(micropost)
+    likes.find_by(micropost_id: micropost.id).destroy
+  end
+
+  def liked?(micropost)
+    likes.find_by(micropost_id: micropost.id)
   end
 
   private
